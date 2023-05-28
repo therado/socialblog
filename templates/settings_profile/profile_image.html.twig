@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Image Profile{% endblock %}
+
+{% block bread %}
+→ Image Profile
+{% endblock %}
+
+{% block body %}
+    {{ include ('settings_profile/_settings_profile_tabs.html.twig') }}
+    <div class="flex">
+    {{ include ('shared/_avatar.html.twig', {'size': 32, profile: app.user.userProfile}) }}
+    <div class="flex items-end">
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+    {{ form_label(form.profileImage, 'Change Image', {'label_attr': {'class': 'shadow-sm-transparent bg-gray-300 hover:bg-gray-400 dark:bg-gray-700 dark:hover:bg-gray-900 cursor-pointer rounded-md border p-2'}}) }}
+    {{ form_widget(form.profileImage, {'attr': {'class': 'hidden'}}) }}
+    {{ form_errors(form.profileImage) }}
+    </div>
+
+    </div>
+     <div>
+        <button type="submit" class="bg-blue-400 hover:bg-blue-500 text-white font-bold mt-5 py-2 px-4 rounded-full">Save Image</button>
+    </div>
+    {{ form_end(form) }}
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editing an Post{% endblock %}
+
+{% block bread %}
+→ <a href="{{path('app_micro_post_show', {post: post.id})}}">Editing → Post</a>  
+{% endblock %}
+{% block body %}
+    {{include('micro_post/_form.html.twig')}}
+{% endblock %}

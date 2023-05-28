@@ -1,0 +1,24 @@
+<!-- 
+W zależności od tego, czy bieżąca ścieżka żądania jest taka sama jak wartość zmiennej 'route', nadaje klasy stylów do elementu <div>, aby uzyskać efekt wizualny.
+Określa także klasę stylu dla tekstu i obramowania dla elementu <div> w zależności od tego, 
+czy dana sekcja strony jest aktywna (będzie miała podświetlenie na niebiesko) czy też nieaktywna (tekst będzie szary).
+Ustawia margines dolny dla elementu <div>.
+Tworzy odnośnik (<a>) dla sekcji, który pobiera adres URL poprzez blok 'path'.
+Definiuje zawartość, która zostanie wyświetlona wewnątrz elementu <a>, używając bloku 'content'.
+-->
+
+<div class="{% if app.request.get('_route') == route %}text-indigo-600 dark:text-indigo-300 border-b-2 border-indigo-500 dark:border-indigo-300
+
+{% else %}text-gray-600 dark:text-gray-400
+
+{% endif %} pb-2 {% if classes is defined %}{{ classes }}
+
+{% endif %}">
+
+  <a href="{% block path %}{% endblock %}">
+
+    {% block content %}{% endblock %}
+
+  </a>
+
+</div>
